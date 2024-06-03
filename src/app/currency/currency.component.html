@@ -1,0 +1,30 @@
+<div class="currency-form">
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="currency">Currency Code:</label>
+        <input type="text" id="currency" [(ngModel)]="currency" name="currency" required>
+      </div>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="name" name="name" required>
+      </div>
+      <button type="submit">Get Currency Value</button>
+    </form>
+  
+    <div *ngIf="value !== null">
+      <h3>Currency Value: {{ value }}</h3>
+    </div>
+    <div *ngIf="error !== null">
+      <h3>Error: {{ error }}</h3>
+    </div>
+  </div>
+  
+  <div class="requests-list">
+    <h3>All Requests</h3>
+    <ul>
+      <li *ngFor="let request of requests">
+        {{ request.date }} - {{ request.name }} asked for {{ request.currency }}: {{ request.value }}
+      </li>
+    </ul>
+  </div>
+  
